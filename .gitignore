@@ -1,0 +1,4 @@
+.env
+gi_assets_map.json
+hsr_assets_map.json
+Maps/*.bin
