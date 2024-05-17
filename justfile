@@ -15,6 +15,12 @@ extract-sprites-gi:
 extract-sprites-hsr:
     $ASSET_STUDIO_CLI "$GAME_DIR_HSR" ./resources/hsr --game SR --map_op Load --map_type JSON --map_name hsr_assets_map --group_assets ByContainer --containers ^assets/asbres/spriteoutput/ --types Sprite
 
+optimize-gi:
+    oxipng -o max -s -r ./resources/gi
+
+optimize-hsr:
+    oxipng -o max -s -r ./resources/hsr
+
 # Generate asset maps for both games
 generate-maps: generate-maps-gi generate-maps-hsr
 
@@ -22,5 +28,4 @@ generate-maps: generate-maps-gi generate-maps-hsr
 extract-sprites: extract-sprites-gi extract-sprites-hsr
 
 # Optimize all PNG images in the resources directory using oxipng
-optimize:
-    oxipng -o max -s -r ./resources
+optimize: optimize-gi optimize-hsr
